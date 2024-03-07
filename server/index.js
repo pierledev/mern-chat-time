@@ -3,8 +3,6 @@ import express from 'express';
 import dotenv from 'dotenv';
 import 'express-async-errors';
 
-import helmet from 'helmet';
-import xss from 'xss-clean';
 import mongoSanitize from 'express-mongo-sanitize';
 import cookieParser from 'cookie-parser';
 
