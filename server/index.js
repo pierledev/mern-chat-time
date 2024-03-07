@@ -34,6 +34,15 @@ app.use(xss());
 app.use(mongoSanitize());
 app.use(cookieParser());
 
+// Set Content Security Policy header
+app.use((req, res, next) => {
+  res.setHeader(
+    'Content-Security-Policy',
+    "default-src 'self'; connect-src 'self' https://avatar.iran.liara.run/public/;"
+  );
+  next();
+});
+
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/users', authMiddleware, usersRoutes);
 app.use('/api/v1/messages', authMiddleware, messagesRoutes);
