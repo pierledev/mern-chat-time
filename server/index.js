@@ -29,19 +29,8 @@ const __dirname = path.resolve(); // it give us the absolute path (the root fold
 dotenv.config();
 
 app.use(express.json()); // to parse the incoming requests with JSON payloads (from req.body)
-app.use(helmet());
-app.use(xss());
 app.use(mongoSanitize());
 app.use(cookieParser());
-
-// Set Content Security Policy header
-app.use((req, res, next) => {
-  res.setHeader(
-    'Content-Security-Policy',
-    "default-src 'self'; connect-src 'self' https://avatar.iran.liara.run/public/;"
-  );
-  next();
-});
 
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/users', authMiddleware, usersRoutes);
