@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /private/          # block access to the private directory
+Disallow: /cgi-bin/          # block access to the cgi-bin directory
+Disallow: /tmp/              # block access to the temporary directory
+Disallow: /documents/        # block access to the documents directory
+Disallow: /images/           # block access to the images directory
